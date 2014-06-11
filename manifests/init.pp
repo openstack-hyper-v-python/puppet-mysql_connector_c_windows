@@ -1,7 +1,7 @@
 class mysql_connector_c_windows (
     $version     = $mysql_connector_c_windows::params::version,
     $url         = $mysql_connector_c_windows::params::url,
-    $package     = $mysql_connector_c_windows::params:package,
+    $package     = $mysql_connector_c_windows::params::package,
     $file_path   = false,
 ) inherits mysql_connector_c_windows::params {
     if $file_path {
@@ -18,7 +18,7 @@ class mysql_connector_c_windows (
     package { $package:
         ensure          => installed,
         source          => $mysql_connector_installer_path,
-        install_options => ['/VERYSILENT','/SUPPRESSMSGBOXES','/LOG'],
+        install_options => ['/quiet'],
     }
 
     $mysql_connector_path = 'C:\\Program Files (x86)\\MySQL\\MySQL Connector C 6.0.2\\bin'
